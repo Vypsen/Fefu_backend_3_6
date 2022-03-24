@@ -49,8 +49,7 @@ services:
             PGADMIN_DEFAULT_EMAIL: '${PGADMIN_DEFAULT_EMAIL}'
             PGADMIN_DEFAULT_PASSWORD: '${PGADMIN_DEFAULT_PASSWORD:-secret}'
         networks:
-        - sail
-
+            - sail
 networks:
     sail:
         driver: bridge
