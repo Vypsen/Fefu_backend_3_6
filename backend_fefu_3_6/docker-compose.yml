@@ -50,6 +50,7 @@ services:
     #         PGADMIN_DEFAULT_PASSWORD: '${PGADMIN_DEFAULT_PASSWORD:-secret}'
     #     networks:
     #         - sail
+
 networks:
     sail:
         driver: bridge
