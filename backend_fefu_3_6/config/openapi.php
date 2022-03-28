@@ -27,6 +27,10 @@ return [
                    'name' => 'news',
                    'description' => 'News',
                 ],
+                [
+                    'name' => 'pages',
+                    'description' => 'Pages',
+                 ],
 
             ],
 
