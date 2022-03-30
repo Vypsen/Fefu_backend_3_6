@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $page_news->title }}</title>
+    <title>{{ $news->title }}</title>
 </head>
 <body>
     <h1>
-        {{ $page_news->title }}
+        {{ $news->title }}
     </h1>
     <p>
-        {{ $page_news->text }}
+        {{ $news->text }}
     </p>
     <h5>
-        {{ $page_news->published_at }}
+        {{ $news->published_at }}
     </h5>
 </body>
 </html>

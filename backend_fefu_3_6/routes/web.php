@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\PageNewsController;
+use App\Http\Controllers\ListNewsWebController;
+use App\Http\Controllers\ListPageWebController;
+use App\Http\Controllers\NewsWebController;
 use App\Http\Controllers\PageWebController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{slug}', PageWebController::class);
+Route::get('/page', ListPageWebController::class);
+Route::get('/page/{slug}', PageWebController::class);
 
-Route::get('/news/{slug}', PageNewsController::class);
+Route::get('/news', ListNewsWebController::class);
+Route::get('/news/{slug}', NewsWebController::class);

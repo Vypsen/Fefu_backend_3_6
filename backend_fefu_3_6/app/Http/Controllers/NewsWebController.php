@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use Illuminate\Http\Request;
 
-class PageNewsController extends Controller
+class NewsWebController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -15,12 +15,12 @@ class PageNewsController extends Controller
      */
     public function __invoke(Request $request, string $slug)
     {
-        $page_news = News::query()
+        $news = News::query()
             ->where('slug', $slug)->first();
 
-        if ($page_news === null) {
+        if ($news === null) {
             abort(404);
         }
-        return view('pageNews', ['page_news' => $page_news]);
+        return view('news', ['news' => $news]);
     }
 }

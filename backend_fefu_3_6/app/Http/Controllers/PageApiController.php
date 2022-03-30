@@ -9,14 +9,16 @@ use App\Http\Resources\NewsResources;
 use App\Http\Resources\PagesResources;
 use App\Models\Page;
 use App\OpenApi\Responses\ListNewsResponse;
+use App\OpenApi\Responses\ListPagesResponse;
 use App\OpenApi\Responses\NotFoundResponse;
 use App\OpenApi\Responses\ShowNewsResponse;
+use App\OpenApi\Responses\ShowPagesResponse;
 use Vyuldashev\LaravelOpenApi\Attributes as OpenApi;
 
 #[OpenApi\PathItem]
 
 
-class PagesApiController extends Controller
+class PageApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,6 +26,8 @@ class PagesApiController extends Controller
      * @return Responsable
      */
     #[OpenApi\Operation(tags: ['pages'])]
+    #[OpenApi\Response(factory: ListPagesResponse::class, statusCode: 200)]
+    #[OpenApi\Response(factory: NotFoundResponse::class, statusCode: 404)]
     public function index()
     {
         return PagesResources::collection(
@@ -39,6 +43,8 @@ class PagesApiController extends Controller
      * @return Responsable
      */
     #[OpenApi\Operation(tags: ['pages'])]
+    #[OpenApi\Response(factory: ShowPagesResponse::class, statusCode: 200)]
+    #[OpenApi\Response(factory: NotFoundResponse::class, statusCode: 404)]
     public function show(string $slug)
     {
         return new PagesResources(

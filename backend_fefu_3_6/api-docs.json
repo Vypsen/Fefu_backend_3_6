@@ -40,6 +40,9 @@
                                 }
                             }
                         }
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
             }
@@ -87,7 +90,36 @@
                 "tags": [
                     "pages"
                 ],
-                "summary": "Display a listing of the resource."
+                "summary": "Display a listing of the resource.",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#\/components\/schemas\/Page"
+                                            }
+                                        },
+                                        "links": {
+                                            "$ref": "#\/components\/schemas\/PoginatorLinks"
+                                        },
+                                        "meta": {
+                                            "$ref": "#\/components\/schemas\/PoginatorMeta"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
             }
         },
         "\/api\/pages\/{page}": {
@@ -105,7 +137,27 @@
                             "type": "string"
                         }
                     }
-                ]
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#\/components\/schemas\/Page"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
             }
         }
     },

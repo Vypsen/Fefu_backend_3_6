@@ -18,8 +18,8 @@ class ListPagesResponse extends ResponseFactory
             MediaType::json()->schema(
                 Schema::object()->properties(
                     Schema::array('data')->items(PagesSchema::ref()),
+                    PoginatorLinksSchema::ref('links'),
                     PoginatorMetaSchema::ref('meta'),
-                    PoginatorLinksSchema::ref('links')
                 )
             )
         );

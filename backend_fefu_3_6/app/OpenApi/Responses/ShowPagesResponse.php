@@ -13,9 +13,9 @@ class ShowPagesResponse extends ResponseFactory
     public function build(): Response
     {
         return Response::ok()->description('Successful response')->content(
-            MediaType::json()->schema(Schema::object())->properties(
+            MediaType::json()->schema(Schema::object()->properties(
                 PagesSchema::ref('data')
-            )
+            ))
         );
     }
 }
