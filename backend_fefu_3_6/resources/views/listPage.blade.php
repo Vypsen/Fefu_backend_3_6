@@ -15,6 +15,6 @@
         </p>
     @endforeach
 
-    <h3>{{ $list_page_paginate->links('pagination::semantic-ui') }}</h3>
+    <h3>{{ $listPage->links('pagination::semantic-ui') }}</h3>
 </body>
 </html>
