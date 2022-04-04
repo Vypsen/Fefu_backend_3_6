@@ -6,7 +6,7 @@
     <title>List News</title>
 </head>
 <body>
-    @foreach($list_news_paginate as $news)
+    @foreach($listNews as $news)
         <h1>
             {{ $news->title }}
         </h1>
@@ -18,6 +18,6 @@
         </h5>
     @endforeach
 
-    <h3>{{ $list_news_paginate->links('pagination::semantic-ui') }}</h3>
+    <h3>{{ $listNews->links('pagination::semantic-ui') }}</h3>
 </body>
 </html>

@@ -27,7 +27,6 @@ class PageApiController extends Controller
      */
     #[OpenApi\Operation(tags: ['pages'])]
     #[OpenApi\Response(factory: ListPagesResponse::class, statusCode: 200)]
-    #[OpenApi\Response(factory: NotFoundResponse::class, statusCode: 404)]
     public function index()
     {
         return PagesResources::collection(

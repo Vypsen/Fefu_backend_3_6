@@ -23,7 +23,6 @@ class NewsApiController extends Controller
      */
     #[OpenApi\Operation(tags: ['news'])]
     #[OpenApi\Response(factory: ListNewsResponse::class, statusCode: 200)]
-    #[OpenApi\Response(factory: NotFoundResponse::class, statusCode: 404)]
     public function index()
     {
         return NewsResources::collection(

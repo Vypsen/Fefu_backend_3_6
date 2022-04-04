@@ -6,7 +6,7 @@
     <title>List Page</title>
 </head>
 <body>
-    @foreach($list_page_paginate as $page)
+    @foreach($listPage as $page)
         <h1>
             {{ $page->title }}
         </h1>

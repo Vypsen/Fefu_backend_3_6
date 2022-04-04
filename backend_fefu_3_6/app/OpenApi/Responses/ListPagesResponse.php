@@ -3,8 +3,8 @@
 namespace App\OpenApi\Responses;
 
 use App\OpenApi\Schemas\PagesSchema;
-use App\OpenApi\Schemas\PoginatorLinksSchema;
-use App\OpenApi\Schemas\PoginatorMetaSchema;
+use App\OpenApi\Schemas\PaginatorLinksSchema;
+use App\OpenApi\Schemas\PaginatorMetaSchema;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\MediaType;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Response;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Schema;
@@ -18,8 +18,8 @@ class ListPagesResponse extends ResponseFactory
             MediaType::json()->schema(
                 Schema::object()->properties(
                     Schema::array('data')->items(PagesSchema::ref()),
-                    PoginatorLinksSchema::ref('links'),
-                    PoginatorMetaSchema::ref('meta'),
+                    PaginatorLinksSchema::ref('links'),
+                    PaginatorMetaSchema::ref('meta'),
                 )
             )
         );

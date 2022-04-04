@@ -21,8 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/page', ListPageWebController::class);
-Route::get('/page/{slug}', PageWebController::class);
+Route::get('/page', [PageWebController::class, 'index']);
+Route::get('/page/{slug}', [PageWebController::class, 'show']);
 
-Route::get('/news', ListNewsWebController::class);
-Route::get('/news/{slug}', NewsWebController::class);
+Route::get('/news', [NewsWebController::class, 'index']);
+Route::get('/news/{slug}', [NewsWebController::class, 'show']);
+

@@ -7,13 +7,33 @@ use Illuminate\Http\Request;
 
 class PageWebController extends Controller
 {
-    /**
-     * Handle the incoming request.
+
+     /**
+     * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     *
      * @return \Illuminate\Http\Response
+     * @return Responsable
      */
-    public function __invoke(Request $request, string $slug)
+    public function index()
+    {
+        $listPage = Page::paginate(5);
+
+        if ($listPage === null) {
+            abort(404);
+        }
+        return view('listPage', ['listPage' => $listPage]);
+    }
+
+
+     /**
+     * Display the specified resource.
+     *
+     * @param string $slug
+     * @return Responsable
+     *
+     */
+    public function show(string $slug)
     {
         $page = Page::query()
             ->where('slug', $slug)->first();
