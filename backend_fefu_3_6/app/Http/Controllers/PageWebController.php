@@ -18,10 +18,6 @@ class PageWebController extends Controller
     public function index()
     {
         $listPage = Page::paginate(5);
-
-        if ($listPage === null) {
-            abort(404);
-        }
         return view('listPage', ['listPage' => $listPage]);
     }
 

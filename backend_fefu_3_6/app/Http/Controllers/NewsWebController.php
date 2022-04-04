@@ -15,10 +15,6 @@ class NewsWebController extends Controller
     public function index()
     {
         $listNews = News::query()->published()->paginate(5);
-
-        if ($listNews === null) {
-            abort(404);
-        }
         return view('listNews', ['listNews' => $listNews]);
     }
 
