@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Web;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\AppealFormRequest;
 use App\Models\Appeal;
 use App\Sanitizers\PhoneSanitizer;
