@@ -4,6 +4,8 @@ use App\Http\Controllers\ListNewsWebController;
 use App\Http\Controllers\ListPageWebController;
 use App\Http\Controllers\NewsWebController;
 use App\Http\Controllers\PageWebController;
+use App\Http\Controllers\Web\AppealController;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/appeal', [AppealController::class, 'form'])->name('appeal.form');
+Route::post('/appeal', [AppealController::class, 'send'])->name('appeal.send');
 
 Route::get('/page', [PageWebController::class, 'index']);
 Route::get('/page/{slug}', [PageWebController::class, 'show']);
