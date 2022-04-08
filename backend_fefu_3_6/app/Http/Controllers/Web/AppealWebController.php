@@ -7,7 +7,7 @@ use App\Models\Appeal;
 use App\Sanitizers\PhoneSanitizer;
 use App\Http\Controllers\Controller;
 
-class AppealController extends Controller
+class AppealWebController extends Controller
 {
     public function form()
     {
@@ -20,7 +20,7 @@ class AppealController extends Controller
 
         $appeal = new Appeal();
         $appeal->name = $data['name'];
-        $appeal->phone =  PhoneSanitizer::sanitize($data['phone']);
+        $appeal->phone = PhoneSanitizer::sanitize($data['phone']);
         $appeal->email = $data['email'];
         $appeal->message = $data['message'];
         $appeal->save();
