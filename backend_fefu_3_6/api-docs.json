@@ -15,7 +15,7 @@
                 "tags": [
                     "appeals"
                 ],
-                "summary": "Display the specified resource.",
+                "summary": "Sending appeals to the db.",
                 "parameters": [
                     {
                         "name": "name",
@@ -65,7 +65,7 @@
                         "$ref": "#\/components\/responses\/ErrorValidation"
                     },
                     "200": {
-                        "$ref": "#\/components\/responses\/"
+                        "description": "Successful response"
                     }
                 }
             }
@@ -328,9 +328,6 @@
                         }
                     }
                 }
-            },
-            "": {
-                "description": "Successful response"
             }
         }
     },

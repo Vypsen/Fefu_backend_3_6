@@ -1,14 +1,12 @@
 <?php
 
 namespace App\OpenApi\Responses;
-;
-use GoldSpecDigital\ObjectOrientedOAS\Objects\MediaType;
+
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Response;
-use GoldSpecDigital\ObjectOrientedOAS\Objects\Schema as ObjectsSchema;
-use Vyuldashev\LaravelOpenApi\Contracts\Reusable;
+use Illuminate\Foundation\Http\FormRequest;
 use Vyuldashev\LaravelOpenApi\Factories\ResponseFactory;
 
-class SuccessValidationResponse extends ResponseFactory implements Reusable
+class SuccessValidationResponse extends ResponseFactory
 {
     public function build(): Response
     {

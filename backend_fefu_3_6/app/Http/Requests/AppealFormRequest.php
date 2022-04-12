@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\OpenApi\Responses\AddAppealsResponse;
 use App\Rules\ValidationPhoneNumder;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
@@ -36,13 +35,4 @@ class AppealFormRequest extends FormRequest
         ];
     }
 
-    protected function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException(Response::json($validator->errors(), 422));
-    }
-
-    protected function passedValidation()
-    {
-        throw new HttpResponseException(Response::json(["Result" => 'success'], 200));
-    }
 }

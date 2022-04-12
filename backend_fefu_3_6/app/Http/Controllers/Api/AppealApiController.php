@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AppealApiRequest;
 use App\Http\Requests\AppealFormRequest;
 use App\Models\Appeal;
 use App\OpenApi\Parameters\AppealsParameters;
@@ -15,8 +16,8 @@ use Vyuldashev\LaravelOpenApi\Attributes as OpenApi;
 class AppealApiController extends Controller
 {
      /**
-     * Display the specified resource.
-     * @param AppealFormRequest
+     * Sending appeals to the db.
+     * @param AppealApiRequest
      * @return JsonResponse
      * @return Responsable
      */
@@ -24,13 +25,13 @@ class AppealApiController extends Controller
     #[OpenApi\Parameters(factory: AppealsParameters::class)]
     #[OpenApi\Response(factory: FailedValidationResponse::class, statusCode: 422)]
     #[OpenApi\Response(factory: SuccessValidationResponse::class, statusCode: 200)]
-    public function store(AppealFormRequest  $request)
+    public function store(AppealApiRequest  $request)
     {
         $data = $request->validated();
 
         $appeal = new Appeal();
-        $appeal->name = $data['name'];
-        $appeal->phone = PhoneSanitizer::sanitize($data['phone']);
+        $appeal->name = $data['name'] ?? null;
+        $appeal->phone = PhoneSanitizer::sanitize($data['phone'] ?? null);
         $appeal->email = $data['email'];
         $appeal->message = $data['message'];
         $appeal->save();
