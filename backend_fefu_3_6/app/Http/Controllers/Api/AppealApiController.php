@@ -30,9 +30,9 @@ class AppealApiController extends Controller
         $data = $request->validated();
 
         $appeal = new Appeal();
-        $appeal->name = $data['name'] ?? null;
+        $appeal->name = $data['name'];
         $appeal->phone = PhoneSanitizer::sanitize($data['phone'] ?? null);
-        $appeal->email = $data['email'];
+        $appeal->email = $data['email'] ?? null;
         $appeal->message = $data['message'];
         $appeal->save();
 
