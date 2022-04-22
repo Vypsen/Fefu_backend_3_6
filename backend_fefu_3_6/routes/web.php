@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Web\AuthController;
+use App\Http\Controllers\Web\AuthWebController;
 use App\Http\Controllers\Web\ProfileController;
 use App\Http\Controllers\Web\NewsWebController;
 use App\Http\Controllers\Web\PageWebController;
@@ -39,19 +39,19 @@ Route::get('/profile', [ProfileController::class, 'show'])
     ->middleware('auth');
 
 
-Route::get('/login', [AuthController::class, 'loginForm'])
+Route::get('/login', [AuthWebController::class, 'loginForm'])
     ->name('login');
 
-Route::post('/login', [AuthController::class, 'login'])
+Route::post('/login', [AuthWebController::class, 'login'])
     ->name('login.post');
 
-Route::post('/logout', [AuthController::class, 'logout'])
+Route::post('/logout', [AuthWebController::class, 'logout'])
     ->name('logout');
 
-Route::get('/register', [AuthController::class, 'registerForm'])
+Route::get('/register', [AuthWebController::class, 'registerForm'])
     ->name('register');
 
-Route::post('/register', [AuthController::class, 'register'])
+Route::post('/register', [AuthWebController::class, 'register'])
     ->name('register.post');
 
 
