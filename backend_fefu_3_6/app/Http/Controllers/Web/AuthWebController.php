@@ -10,7 +10,7 @@ use Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AuthController extends Controller
+class AuthWebController extends Controller
 {
     public function loginForm()
     {
@@ -52,12 +52,7 @@ class AuthController extends Controller
     {
         $data = $request->validated();
 
-        $user = new User();
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->password = Hash::make($data['password']);
-
-        $user->save();
+        $user = User::createFormRequest($data);
 
         Auth::login($user);
         $request->session()->regenerate();
