@@ -17,14 +17,8 @@ class AppealWebController extends Controller
     public function send(AppealFormRequest $request)
     {
         $data = $request->validated();
-
-        $appeal = new Appeal();
-        $appeal->name = $data['name'];
-        $appeal->phone = PhoneSanitizer::sanitize($data['phone']);
-        $appeal->email = $data['email'];
-        $appeal->message = $data['message'];
-        $appeal->save();
-
+        Appeal::createFormRequest($data);
+        
         return redirect(route('appeal.form'))->with(['success' => true]);
     }
 }

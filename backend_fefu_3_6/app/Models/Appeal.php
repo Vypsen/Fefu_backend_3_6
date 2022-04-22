@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Sanitizers\PhoneSanitizer;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -37,5 +38,18 @@ class Appeal extends Model
     use HasFactory;
     public function user(): BelongsTo {
         return $this->belongsTo(User::class);
+    }
+
+    public static function createFormRequest(array $requestData) : self {
+        
+        $appeal = new self();
+
+        $appeal->name = $requestData['name'];
+        $appeal->phone = PhoneSanitizer::sanitize($requestData['phone'] ?? null);
+        $appeal->email = $requestData['email'] ?? null;;
+        $appeal->message = $requestData['message'];
+        $appeal->save();
+
+        return $appeal;
     }
 }
