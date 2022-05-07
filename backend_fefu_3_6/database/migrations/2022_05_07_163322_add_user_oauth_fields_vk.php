@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function(Blueprint $table){
-            $table->string('github_id')->nullable()->unique();
-            $table->dateTime('github_logged_in_at')->nullable();
-            $table->dateTime('github_registered_at')->nullable();
+            $table->string('vk_id')->nullable()->unique();
+            $table->dateTime('vk_logged_in_at')->nullable();
+            $table->dateTime('vk_registered_at')->nullable();
         });
     }
 
@@ -28,7 +28,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function(Blueprint $table){
-            $table->dropColumn(['github_id', 'github_logged_in_at', 'github_registered_at']);
+            $table->dropColumn(['vk_id', 'vk_logged_in_at', 'vk_registered_at']);
         });
     }
 };

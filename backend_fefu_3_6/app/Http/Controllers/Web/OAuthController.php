@@ -14,7 +14,7 @@ use Throwable;
 class OAuthController extends Controller
 {
 
-    private const ALLOWED_PROVIDERS = ['github'];
+    private const ALLOWED_PROVIDERS = ['github', 'google'];
 
     private function getValidateProvider(string $provider): string
     {

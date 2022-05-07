@@ -15,6 +15,22 @@
             <b> registration date: {{$user['github_registered_at'] ?? 'never'}}</b>
         </label>
     </div>
+    {{-- <div>
+        <h3>OAuth info:</h3>
+        <h4>vk</h4>
+        <label>
+            <b> last login date: {{$user['vk_logged_in_at'] ?? 'never'}}</b> <br>
+            <b> registration date: {{$user['vk_registered_at'] ?? 'never'}}</b>
+        </label>
+    </div> --}}
+    <div>
+        <h3>OAuth info:</h3>
+        <h4>google</h4>
+        <label>
+            <b> last login date: {{$user['google_logged_in_at'] ?? 'never'}}</b> <br>
+            <b> registration date: {{$user['google_registered_at'] ?? 'never'}}</b>
+        </label>
+    </div>
     <form action="{{ route('logout') }}" method="POST">
         @csrf
         <button type="submit">Logout</button>

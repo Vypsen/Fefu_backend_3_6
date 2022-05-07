@@ -29,6 +29,8 @@
             <input type="submit"/>
         </div>
     </form>
-    <a href="{{route('oauth.redirect', ['provider' => 'github'])}}">login through github</a>
+    <a href="{{route('oauth.redirect', ['provider' => 'github'])}}">login through github</a><br>
+    {{-- <a href="{{route('oauth.redirect', ['provider' => 'vkontakte'])}}">login through vk</a><br> --}}
+    <a href="{{route('oauth.redirect', ['provider' => 'google'])}}">login through google</a>
 </body>
 </html>
