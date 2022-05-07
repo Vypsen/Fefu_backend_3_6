@@ -29,5 +29,6 @@
             <input type="submit"/>
         </div>
     </form>
+    <a href="{{route('oauth.redirect', ['provider' => 'github'])}}">login through github</a>
 </body>
 </html>

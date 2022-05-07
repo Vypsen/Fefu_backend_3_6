@@ -37,6 +37,12 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $github_id
+ * @property string|null $github_logged_in_at
+ * @property string|null $github_registered_at
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereGithubId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereGithubLoggedInAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereGithubRegisteredAt($value)
  */
 class User extends Authenticatable
 {
@@ -51,6 +57,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'github_id',
+        'github_logged_in_at',
+        'github_registered_at'
     ];
 
     /**
@@ -61,6 +70,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'github_id',
     ];
 
     /**
@@ -70,6 +80,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'github_logged_in_at' => 'datetime',
+        'github_registered_at' => 'datetime',
     ];
 
 
