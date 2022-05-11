@@ -31,13 +31,6 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    // 'vkontakte' => [
-    //     'client_id' => env('VK_CLIENT_ID'),
-    //     'client_secret' => env('VK_CLIENT_SECRET'),
-    //     'redirect' => env('GITHUB_REDIRECT_URL'),
-    //     'scopes' => ['read::user'],
-    // ],
-
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),

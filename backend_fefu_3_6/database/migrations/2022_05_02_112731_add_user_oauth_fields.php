@@ -14,6 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function(Blueprint $table){
+            $table->string('email')->nullable()->change();
+            $table->string('password')->nullable()->change();
             $table->string('github_id')->nullable()->unique();
             $table->dateTime('github_logged_in_at')->nullable();
             $table->dateTime('github_registered_at')->nullable();

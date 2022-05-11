@@ -96,8 +96,6 @@ class User extends Authenticatable
         'github_id',
         'vk_id',
         'google_id',
-        'app_logged_in_at',
-        'app_registered_at',
     ];
 
     /**
