@@ -30,7 +30,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function(Blueprint $table){
-            $table->dropColumn(['github_id', 'github_logged_in_at', 'github_registered_at']);
+            $table->dropColumn(['email', 'password', 'github_id', 'github_logged_in_at', 'github_registered_at']);
         });
     }
 };

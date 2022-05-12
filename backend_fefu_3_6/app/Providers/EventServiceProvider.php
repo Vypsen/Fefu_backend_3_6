@@ -16,11 +16,6 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
-
-        SocialiteWasCalled::class => [
-            VKontakteExtendSocialite::class.'@handle',
-        ],
-
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],

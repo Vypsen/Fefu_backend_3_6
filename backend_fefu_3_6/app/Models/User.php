@@ -77,9 +77,6 @@ class User extends Authenticatable
         'github_id',
         'github_logged_in_at',
         'github_registered_at',
-        'vk_id',
-        'vk_logged_in_at',
-        'vk_registered_at',
         'google_id',
         'google_logged_in_at',
         'google_registered_at',
@@ -94,7 +91,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'github_id',
-        'vk_id',
         'google_id',
     ];
 
@@ -107,8 +103,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'github_logged_in_at' => 'datetime',
         'github_registered_at' => 'datetime',
-        'vk_logged_in_at' => 'datetime',
-        'vk_registered_at' => 'datetime',
         'google_logged_in_at' => 'datetime',
         'google_registered_at' => 'datetime',
         'app_logged_in_at' => 'datetime',

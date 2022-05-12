@@ -21,6 +21,8 @@ class UserResources extends JsonResource
             'github_registered_at' => $this->github_registered_at,
             'google_logged_in_at' => $this->google_logged_in_at,
             'google_registered_at' => $this->google_registered_at,
+            'app_logged_in_at' => $this->app_logged_in_at,
+            'app_registered_at' => $this->app_registered_at,
         ];
     }
 }

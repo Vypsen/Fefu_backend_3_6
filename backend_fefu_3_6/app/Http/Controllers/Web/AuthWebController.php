@@ -52,7 +52,7 @@ class AuthWebController extends Controller
     {
         $data = $request->validated();
 
-        $user = User::createFromRequest($data);
+        $user = User::createFormRequest($data);
 
         Auth::login($user);
         $request->session()->regenerate();
