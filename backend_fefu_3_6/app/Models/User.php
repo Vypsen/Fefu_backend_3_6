@@ -110,7 +110,7 @@ class User extends Authenticatable
     ];
 
 
-    public static function createFormRequest(array $requestData) : self {
+    public static function createFromRequest(array $requestData) : self {
 
         $user = new self();
         $user->name = $requestData['name'];

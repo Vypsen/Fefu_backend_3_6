@@ -95,7 +95,7 @@ class AuthApiController extends Controller
         if ($user) {
             $user = User::changeFromRequest($user, $data);
         } else {
-            $user = User::createFormRequest($data);
+            $user = User::createFromRequest($data);
         }
 
 

@@ -26,7 +26,7 @@ class BaseRegisterFormRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:255'],
-            'email' => ['required', 'email', 'unique:users'],
+            'email' => ['required', 'email'],
             'password' => ['required', 'min:1|max:255'],
         ];
     }
