@@ -28,7 +28,7 @@ Route::get('/', function () {
 Route::get('/categories/{slug?}', [CategoriesWebController::class, 'index'])
     ->name('categories');
 
-Route::get('/categories/product/{slug}', [ProductWebController::class, 'index'])
+Route::get('/catalog/product/{slug}', [ProductWebController::class, 'index'])
     ->name('product');
 
 

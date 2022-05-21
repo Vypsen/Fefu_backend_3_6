@@ -29,6 +29,5 @@
         @endforeach
     </table>
 
-    {{-- TODO: attributes --}}
 </body>
 </html>

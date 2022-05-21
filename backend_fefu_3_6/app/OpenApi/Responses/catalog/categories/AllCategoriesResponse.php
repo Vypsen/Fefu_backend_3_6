@@ -1,15 +1,15 @@
 <?php
 
-namespace App\OpenApi\Responses\catalog;
+namespace App\OpenApi\Responses\catalog\categories;
 
 use App\OpenApi\Schemas\CategoriesSchema;
-use GoldSpecDigital\ObjectOrientedOAS\Objects\Response;
-use Vyuldashev\LaravelOpenApi\Factories\ResponseFactory;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\MediaType;
-use GoldSpecDigital\ObjectOrientedOAS\Objects\Schema as ObjectsSchema;
+use GoldSpecDigital\ObjectOrientedOAS\Objects\Response;
+use GoldSpecDigital\ObjectOrientedOAS\Objects\Schema;
+use Vyuldashev\LaravelOpenApi\Contracts\Reusable;
+use Vyuldashev\LaravelOpenApi\Factories\ResponseFactory;
 
-
-class ShowCategoriesResponse extends ResponseFactory
+class AllCategoriesResponse extends ResponseFactory
 {
     public function build(): Response
     {
@@ -17,8 +17,8 @@ class ShowCategoriesResponse extends ResponseFactory
             ->description('Successful response')
             ->content(
                 MediaType::json()->schema(
-                    ObjectsSchema::object()->properties(
-                        CategoriesSchema::ref('data')
+                    Schema::object()->properties(
+                        Schema::array('data')->items(CategoriesSchema::ref()),
                     )
                 )
             );

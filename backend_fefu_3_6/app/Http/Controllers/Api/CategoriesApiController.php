@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoriesResources;
 use App\Models\ProductCategory;
-use App\OpenApi\Responses\catalog\AllCategoriesResponse;
-use App\OpenApi\Responses\catalog\ShowCategoriesResponse;
+use App\OpenApi\Responses\catalog\categories\AllCategoriesResponse;
+use App\OpenApi\Responses\catalog\categories\ShowCategoriesResponse;
 use App\OpenApi\Responses\NotFoundResponse;
 use Vyuldashev\LaravelOpenApi\Attributes as OpenApi;
 
