@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Catalog;
 use App\Models\News;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * @mixin Categories
+ * @mixin ProductCategory
  */
 class AttributeValueResource extends JsonResource
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Catalog;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductResources extends JsonResource
+class FullInfoProductCategoryResource extends JsonResource
 {
 
     /**
@@ -16,14 +16,17 @@ class ProductResources extends JsonResource
     public function toArray($request)
     {
         return [
+
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
-            'description' => $this->description,
             'price' => $this->price,
-            'categories' => new CategoriesResources(
+            'description' => $this->description,
+
+            'category' => new CategoryResource(
                 $this->productCategory
             ),
+
             'attributes' => AttributeValueResource::collection(
                 $this->sortedAttributeValues
             )

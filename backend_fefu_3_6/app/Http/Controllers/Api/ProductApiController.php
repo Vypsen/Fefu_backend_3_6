@@ -3,17 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductResources;
+use App\Http\Resources\Catalog\FullInfoProductCategoryResource;
+use App\Http\Resources\Catalog\ShortInfoProductResource;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\OpenApi\Parameters\CategoriesParameters;
 use App\OpenApi\Parameters\CategoryNameParameters;
 use App\OpenApi\Parameters\ProductNameParameters;
-use App\OpenApi\Responses\catalog\products\AllProductsCategories;
-use App\OpenApi\Responses\catalog\products\ListProductsResponse;
-use App\OpenApi\Responses\catalog\products\ShowProductResponse;
-use App\OpenApi\Responses\FailedValidationResponse;
+use App\OpenApi\Responses\Catalog\Products\AllProductsCategory;
+use App\OpenApi\Responses\Catalog\Products\ShowProductResponse;
 use App\OpenApi\Responses\NotFoundResponse;
+use Exception;
 use Illuminate\Http\Request;
 use Vyuldashev\LaravelOpenApi\Attributes as OpenApi;
 
@@ -33,16 +32,20 @@ class ProductApiController extends Controller
     {
         $productSlug = $request['product_slug'];
 
-        $product = Product::query()
-            ->with('productCategory','sortedAttributeValues.productAttribute')
-            ->where('slug', $productSlug)
-            ->first();
+        try {
+            $product = Product::query()
+                ->with('productCategory','sortedAttributeValues.productAttribute')
+                ->where('slug', $productSlug)
+                ->first();
+        } catch (Exception $exception) {
+            abort(422, $exception->getMessage());
+        }
 
         if($product === null){
             abort(404);
         }
 
-        return new ProductResources(
+        return new FullInfoProductCategoryResource(
             $product
         );
     }
@@ -54,7 +57,7 @@ class ProductApiController extends Controller
      */
     #[OpenApi\Operation(tags: ['products'])]
     #[OpenApi\Parameters(factory: CategoryNameParameters::class)]
-    #[OpenApi\Response(factory: AllProductsCategories::class, statusCode: 200)]
+    #[OpenApi\Response(factory: AllProductsCategory::class, statusCode: 200)]
     #[OpenApi\Response(factory: NotFoundResponse::class, statusCode: 404)]
     public function index(Request $request)
     {
@@ -73,7 +76,7 @@ class ProductApiController extends Controller
             ->orderBy('id')
             ->paginate();
 
-        return ProductResources::collection(
+        return ShortInfoProductResource::collection(
             $products
         );
 

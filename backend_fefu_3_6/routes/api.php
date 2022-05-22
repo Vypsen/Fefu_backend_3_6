@@ -42,7 +42,7 @@ Route::apiResource('pages', PageApiController::class)->only([
     'show',
 ]);
 
-Route::apiResource('сategories', CategoriesApiController::class)->only([
+Route::apiResource('categories', CategoriesApiController::class)->only([
     'index',
     'show',
 ]);

@@ -344,7 +344,7 @@
                 }
             }
         },
-        "\/api\/сategories": {
+        "\/api\/categories": {
             "get": {
                 "tags": [
                     "categories"
@@ -372,7 +372,7 @@
                 }
             }
         },
-        "\/api\/сategories\/{сategory}": {
+        "\/api\/categories\/{category}": {
             "get": {
                 "tags": [
                     "categories"
@@ -380,7 +380,7 @@
                 "summary": "Display Categories through slug.",
                 "parameters": [
                     {
-                        "name": "сategory",
+                        "name": "category",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -515,6 +515,23 @@
                     }
                 }
             },
+            "Product": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "slug": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "string"
+                    }
+                }
+            },
             "News": {
                 "type": "object",
                 "properties": {
@@ -607,23 +624,6 @@
                                 }
                             }
                         }
-                    }
-                }
-            },
-            "Product": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "slug": {
-                        "type": "string"
-                    },
-                    "price": {
-                        "type": "string"
                     }
                 }
             },
