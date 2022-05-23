@@ -18,7 +18,7 @@ class FullInfoProductSchema extends SchemaFactory implements Reusable
      */
     public function build(): SchemaContract
     {
-        return Schema::object('full_info')
+        return Schema::object('FullInfoProduct')
             ->properties(
                 Schema::string('id')->default(null),
                 Schema::string('name')->default(null),

@@ -437,7 +437,7 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#\/components\/schemas\/Product"
+                                                "$ref": "#\/components\/schemas\/ShortInfoProduct"
                                             }
                                         },
                                         "links": {
@@ -481,8 +481,8 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "full_info": {
-                                            "$ref": "#\/components\/schemas\/full_info"
+                                        "data": {
+                                            "$ref": "#\/components\/schemas\/FullInfoProduct"
                                         }
                                     }
                                 }
@@ -515,7 +515,7 @@
                     }
                 }
             },
-            "full_info": {
+            "FullInfoProduct": {
                 "type": "object",
                 "properties": {
                     "id": {
@@ -644,7 +644,7 @@
                     }
                 }
             },
-            "Product": {
+            "ShortInfoProduct": {
                 "type": "object",
                 "properties": {
                     "id": {

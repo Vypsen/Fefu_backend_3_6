@@ -9,7 +9,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\OpenApi\Parameters\CategoryNameParameters;
 use App\OpenApi\Parameters\ProductNameParameters;
-use App\OpenApi\Responses\catalog\products\CategoryProductListResponse;
+use App\OpenApi\Responses\Catalog\Products\CategoryProductListResponse;
 use App\OpenApi\Responses\Catalog\Products\ShowProductResponse;
 use App\OpenApi\Responses\NotFoundResponse;
 use Exception;

@@ -18,7 +18,7 @@ class ShortInfoProductSchema extends SchemaFactory implements Reusable
      */
     public function build(): SchemaContract
     {
-        return Schema::object('Product')
+        return Schema::object('ShortInfoProduct')
             ->properties(
                 Schema::string('id')->default(null),
                 Schema::string('name')->default(null),

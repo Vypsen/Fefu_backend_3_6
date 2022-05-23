@@ -16,7 +16,7 @@ class ShowProductResponse extends ResponseFactory
             ->description('Successful response')
             ->content(
                 MediaType::json()->schema(Schema::object()->properties(
-                    FullInfoProductSchema::ref('full_info')
+                    FullInfoProductSchema::ref('data')
                 ))
             );
     }
