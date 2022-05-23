@@ -2,7 +2,7 @@
 
 namespace App\OpenApi\Responses\catalog\products;
 
-use App\OpenApi\Schemas\ShortInfoProductSchema;
+use App\OpenApi\Schemas\FullInfoProductSchema;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\MediaType;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Response;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Schema;
@@ -16,7 +16,7 @@ class ShowProductResponse extends ResponseFactory
             ->description('Successful response')
             ->content(
                 MediaType::json()->schema(Schema::object()->properties(
-                    ShortInfoProductSchema::ref('data')
+                    FullInfoProductSchema::ref('full_info')
                 ))
             );
     }

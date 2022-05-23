@@ -3,8 +3,10 @@
 namespace App\Http\Resources\Catalog;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-
-class FullInfoProductCategoryResource extends JsonResource
+/**
+ * @mixin Product
+ */
+class FullInfoProductResource extends JsonResource
 {
 
     /**

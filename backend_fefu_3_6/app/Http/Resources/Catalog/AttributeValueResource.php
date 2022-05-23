@@ -5,7 +5,7 @@ use App\Models\News;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * @mixin ProductCategory
+ * @mixin ProductAttributeValues
  */
 class AttributeValueResource extends JsonResource
 {

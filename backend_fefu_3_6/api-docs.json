@@ -481,8 +481,8 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "data": {
-                                            "$ref": "#\/components\/schemas\/Product"
+                                        "full_info": {
+                                            "$ref": "#\/components\/schemas\/full_info"
                                         }
                                     }
                                 }
@@ -515,7 +515,7 @@
                     }
                 }
             },
-            "Product": {
+            "full_info": {
                 "type": "object",
                 "properties": {
                     "id": {
@@ -529,6 +529,23 @@
                     },
                     "price": {
                         "type": "string"
+                    },
+                    "category": {
+                        "$ref": "#\/components\/schemas\/Categories"
+                    },
+                    "attributes": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -624,6 +641,23 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "Product": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "slug": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "string"
                     }
                 }
             },

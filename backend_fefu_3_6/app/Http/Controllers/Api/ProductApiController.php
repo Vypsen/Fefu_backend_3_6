@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Catalog\FullInfoProductCategoryResource;
+use App\Http\Resources\Catalog\FullInfoProductResource;
 use App\Http\Resources\Catalog\ShortInfoProductResource;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\OpenApi\Parameters\CategoryNameParameters;
 use App\OpenApi\Parameters\ProductNameParameters;
-use App\OpenApi\Responses\Catalog\Products\AllProductsCategory;
+use App\OpenApi\Responses\catalog\products\CategoryProductListResponse;
 use App\OpenApi\Responses\Catalog\Products\ShowProductResponse;
 use App\OpenApi\Responses\NotFoundResponse;
 use Exception;
@@ -32,20 +32,17 @@ class ProductApiController extends Controller
     {
         $productSlug = $request['product_slug'];
 
-        try {
-            $product = Product::query()
-                ->with('productCategory','sortedAttributeValues.productAttribute')
-                ->where('slug', $productSlug)
-                ->first();
-        } catch (Exception $exception) {
-            abort(422, $exception->getMessage());
-        }
+
+        $product = Product::query()
+            ->with('productCategory','sortedAttributeValues.productAttribute')
+            ->where('slug', $productSlug)
+            ->first();
 
         if($product === null){
             abort(404);
         }
 
-        return new FullInfoProductCategoryResource(
+        return new FullInfoProductResource(
             $product
         );
     }
@@ -57,7 +54,7 @@ class ProductApiController extends Controller
      */
     #[OpenApi\Operation(tags: ['products'])]
     #[OpenApi\Parameters(factory: CategoryNameParameters::class)]
-    #[OpenApi\Response(factory: AllProductsCategory::class, statusCode: 200)]
+    #[OpenApi\Response(factory: CategoryProductListResponse::class, statusCode: 200)]
     #[OpenApi\Response(factory: NotFoundResponse::class, statusCode: 404)]
     public function index(Request $request)
     {
@@ -72,9 +69,14 @@ class ProductApiController extends Controller
         }
 
         $categories = $query->get();
-        $products = ProductCategory::getTreeProductBuilder($categories)
+
+        try {
+            $products = ProductCategory::getTreeProductBuilder($categories)
             ->orderBy('id')
             ->paginate();
+        } catch (Exception $exception) {
+            abort(422, $exception->getMessage());
+        }
 
         return ShortInfoProductResource::collection(
             $products

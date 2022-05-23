@@ -64,7 +64,7 @@ class ProductCategory extends Model
     public static function getTreeProductBuilder(Collection $categories): Builder
     {
 
-        if ($categories === null) {
+        if ($categories->isEmpty()) {
             throw new Exception('categories collection is empty');
         }
 

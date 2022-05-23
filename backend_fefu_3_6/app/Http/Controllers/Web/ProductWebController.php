@@ -9,14 +9,11 @@ class ProductWebController extends Controller
 {
     public function index(string $slug)
     {
-        try {
-            $product = Product::query()
-                ->with('productCategory','sortedAttributeValues.productAttribute')
-                ->where('slug', $slug)
-                ->first();
-        } catch (Exception $exception) {
-            abort(422, $exception->getMessage());
-        }
+        $product = Product::query()
+            ->with('productCategory','sortedAttributeValues.productAttribute')
+            ->where('slug', $slug)
+            ->first();
+
 
         if($product === null){
             abort(404);
