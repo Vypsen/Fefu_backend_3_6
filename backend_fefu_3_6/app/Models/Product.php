@@ -38,6 +38,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProductAttributeValues[] $sortedAttributeValues
  * @property-read int|null $sorted_attribute_values_count
+ * @method static Builder|Product search(string $searchQuery)
  */
 class Product extends Model
 {

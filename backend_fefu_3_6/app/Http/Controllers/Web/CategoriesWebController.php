@@ -44,7 +44,6 @@ class CategoriesWebController extends Controller
         }
 
         $filters = ProductFilter::build($productQuery, $requestData['filters'] ?? []);
-
         ProductFilter::apply($productQuery, $requestData['filters'] ?? []);
 
         $sortMode = $requestData['sort_mode'] ?? null;
